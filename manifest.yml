@@ -1,0 +1,6 @@
+name: "Oldex Search Engine"
+description: "Search Engine for Vintage Computers"
+author: "Tutmonde Team & Contributers"
+version: "0.0.1-alpha"
+
+init: "bootstrap.php"
