@@ -51,6 +51,7 @@ class SearchEngine
 				$block['link'] = explode('class="result__a" href="', $result_blocks[$i])[1];
 				$block_link_tmp = explode('">', $block['link']);
 				$block['link'] = str_replace('//duckduckgo.com/l/?uddg=', null, $block_link_tmp[0]);
+				$block['link'] = explode('&amp', urldecode($block['link']))[0];
 
 				// Parsing the block title
 				$block['title'] = str_replace('</a>', null, explode("\n", $block_link_tmp[1]))[0];
@@ -65,7 +66,7 @@ class SearchEngine
 				$block['snippet'] = explode('</a>', $block['snippet'])[0];
 				
 				// Adding a search result to array
-				$returnArray['result'][] = array('title' => $block['title'], 'link' => urldecode($block['link']), 'snippet' => $block['snippet'], 'display_url' => $block['display_url']);
+				$returnArray['result'][] = array('title' => $block['title'], 'link' => $block['link'], 'snippet' => $block['snippet'], 'display_url' => $block['display_url']);
 			}
 		}
 
